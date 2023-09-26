@@ -1,2 +1,2 @@
 # LWE-bitcoin
-Let's make Bitcoin quantum resistant :)
+🔒 Lattice-Based Encryption for Bitcoin Core, using Learning With Errors (LWE) techniques.  
