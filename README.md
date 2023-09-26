@@ -73,3 +73,50 @@ This code file also includes functionality for generating and verifying digital 
 
 - Signature Verification: The `verifySignature` function checks the validity of a digital signature by comparing it to the original binary message and the public key.
 
+## Output
+```
+(base) nazarethkeshishian@Nazareths-MacBook-Pro LWE-bitcoin % python LWE.py 
+Enter a string to encrypt: Hello World!
+010010000110010101101100011011000110111100100000010101110110111101110010011011000110010000100001
+
+------Parameters and keys-------
+Message to send:         Hello World!
+Public Key (A):  [67, 10, 87, 13, 76, 38, 78, 89, 25, 52, 39, 65, 35, 45, 54, 21]
+Public Key (B):  [59, 14, 87, 49, 62, 31, 84, 13, 83, 88, 43, 38, 95, 12, 16, 41]
+Errors (e):              [1, 1, 3, 3, 2, 1, 2, 4, 2, 1, 2, 2, 1, 2, 4, 4]
+Secret vector:           [225, 116, 220, 112, 234, 188, 156, 249, 149, 147, 115, 254, 66, 227, 10, 205, 225, 116, 220, 112, 234, 188, 156, 249, 149, 147, 115, 254, 66, 227, 10, 205]
+Secret key:              5346
+Prime number:            97
+Decrypted bits are: [0, 1, 0, 0, 1, 0, 0, 0, 0, 1, 1, 0, 0, 1, 0, 1, 0, 1, 1, 0, 1, 1, 0, 0, 0, 1, 1, 0, 1, 1, 0, 0, 0, 1, 1, 0, 1, 1, 1, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 1, 1, 1, 0, 1, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 0, 0, 1, 0, 0, 1, 1, 0, 1, 1, 0, 0, 0, 1, 1, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1]
+Decrypted message:  Hello World!
+Public key: 00430a570d4c264e5919342741232d36153b0e57313e1f540d53582b265f0c1029 33.0 bytes
+Private key: e174dc70eabc9cf9959373fe42e30acde174dc70eabc9cf9959373fe42e30acd 32.0 bytes
+wallet_address: 1EVLsNHEz7cNAQBJY8ym9JFSNBFMA7WKF5 34 base58 characters, representing 25 bytes
+step0: c_coefficients [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+step1: c_coefficients [0, 1, 1, 0, 1, 0, 1, 0, 0, 1, 0, 0, 1, 1, 0, 1]
+non_zero_indices [1, 2, 4, 6, 9, 12, 13, 15]
+step2: c_coefficients [0, 1, 1, 0, 1, 0, 1, 0, 0, 1, 0, 0, 1, 1, 0, 1]
+step3: c_coefficients [0, 1, 1, 0, 1, 0, 1, 0, 0, 1, 0, 0, 1, 1, 0, 1]
+step0: c_coefficients [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+step1: c_coefficients [0, 1, 1, 0, 1, 1, 0, 1, 0, 0, 0, 1, 1, 1, 0, 1]
+non_zero_indices [1, 2, 4, 5, 7, 11, 12, 13, 15]
+step2: c_coefficients [0, 1, 1, 0, 1, 1, 0, 1, 0, 0, 0, 1, 1, 1, 0, 1]
+step3: c_coefficients [0, 1, 1, 0, 1, 1, 0, 1, 0, 0, 0, 1, 1, 1, 0, 1]
+step0: c_coefficients [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+step1: c_coefficients [0, 1, 0, 1, 0, 1, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0]
+non_zero_indices [1, 3, 5, 6, 13]
+step2: c_coefficients [0, 1, 0, 1, 0, 1, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0]
+step3: c_coefficients [0, 1, 0, 1, 0, 1, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0]
+step0: c_coefficients [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+step1: c_coefficients [0, 0, 1, 1, 0, 0, 0, 1, 0, 1, 1, 0, 1, 1, 1, 1]
+non_zero_indices [2, 3, 7, 9, 10, 12, 13, 14, 15]
+step2: c_coefficients [0, 0, 1, 1, 0, 0, 0, 1, 0, 1, 1, 0, 1, 1, 1, 1]
+step3: c_coefficients [0, 0, 1, 1, 0, 0, 0, 1, 0, 1, 1, 0, 1, 1, 1, 1]
+Signature: ([0, 0, 1, 1, 0, 0, 0, 1, 0, 1, 1, 0, 1, 1, 1, 1], [74, 65, 26, 37, 1, 85, 56, 16, 86, 30, 78, 37, 85, 73, 65, 56], [83, 68, 63, 8, 25, 1, 24, 67, 89, 20, 78, 82, 65, 22, 78, 72], [16, 37, 4, 67, 60, 52, 81, 0, 69, 31, 3, 81, 34, 61, 27, 62])
+step0: c_coefficients [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+step1: c_coefficients [0, 0, 1, 1, 0, 0, 0, 1, 0, 1, 1, 0, 1, 1, 1, 1]
+non_zero_indices [2, 3, 7, 9, 10, 12, 13, 14, 15]
+step2: c_coefficients [0, 0, 1, 1, 0, 0, 0, 1, 0, 1, 1, 0, 1, 1, 1, 1]
+step3: c_coefficients [0, 0, 1, 1, 0, 0, 0, 1, 0, 1, 1, 0, 1, 1, 1, 1]
+Signature is valid.
+```
