@@ -3,8 +3,8 @@
 # Reference: https://en.m.wikipedia.org/wiki/Ring_learning_with_errors_signature
 """
 import random
-B = 100 # Security parameter
-k = 10   # Number of non-zero coefficients in c(x)
+B = 16383 # Security parameter
+k = 16   # Number of non-zero coefficients in c(x)
 
 def encodePolynomial(coefficients):
     # Encode the coefficients of a polynomial as a bit string
@@ -16,23 +16,23 @@ def encodePolynomial(coefficients):
 def polyHash(bits, nvals, q):
     # Hash the concatenated bit string and return c(x) as a polynomial
     c_coefficients = [0] * nvals
-    print("step0: c_coefficients", c_coefficients)
+    # print("step0: c_coefficients", c_coefficients)
 
     for i, bit in enumerate(bits):
         if bit == '1':
             c_coefficients[i % nvals] ^= 1
-    print("step1: c_coefficients", c_coefficients)
+    # print("step1: c_coefficients", c_coefficients)
 
     non_zero_indices = [i for i, coeff in enumerate(c_coefficients) if coeff != 0]
-    print("non_zero_indices", non_zero_indices)
+    # print("non_zero_indices", non_zero_indices)
 
     if len(non_zero_indices) > k:
         for i in range(len(non_zero_indices) - k):
             c_coefficients[non_zero_indices[i]] = 0
-    print("step2: c_coefficients", c_coefficients)
+    # print("step2: c_coefficients", c_coefficients)
 
     c_coefficients = [coeff % q for coeff in c_coefficients]
-    print("step3: c_coefficients", c_coefficients)
+    # print("step3: c_coefficients", c_coefficients)
 
     return c_coefficients
 
@@ -57,7 +57,7 @@ def generateSignature(message, a_coefficients, q, nvals):
         infinity_norm_z1 = max([abs(coeff) for coeff in z1_coefficients])
         infinity_norm_z2 = max([abs(coeff) for coeff in z2_coefficients])
         beta = B - k
-
+        print(infinity_norm_z1, beta, infinity_norm_z2)
         if infinity_norm_z1 <= beta and infinity_norm_z2 <= beta:
             # Compute t(x) = a(x)·s(x) + e(x) and return it as part of the public key
             t_coefficients = [(a * s + e) % q for a, s, e in zip(a_coefficients, s_coefficients, e_coefficients)]
@@ -80,20 +80,3 @@ def verifySignature(signature, public_key, message, nvals, q):
     c_prime_coefficients = polyHash(concatenated_message, nvals, q)
 
     return c_prime_coefficients == c_coefficients
-
-if __name__ == "__main__":
-    # Example usage
-    message = "011000010111001101100100"  
-    nvals = 16 # lattice dimensions
-    q = 97 # prime number
-    B = 100  # Security parameter
-    a_coefficients = [random.randint(0, q - 1) for _ in range(nvals)]  # Generate a(x) coefficients
-
-    signature = generateSignature(message, a_coefficients, k, q, nvals, B)
-    print("Signature:", signature)
-
-    is_valid = verifySignature(signature, a_coefficients, message, k, nvals, q, B)
-    if is_valid:
-        print("Signature is valid.")
-    else:
-        print("Signature is invalid.")

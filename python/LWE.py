@@ -27,16 +27,16 @@ def main(input_string, nvals, q):
     print("Private key:", private_key, len(private_key)/2, "bytes")
     wallet_address = generateWalletAddress(public_key)
     print("wallet_address:", wallet_address, len(wallet_address), "base58 characters, representing 25 bytes")
-    signature = generateSignature(binary_string, A, q, nvals)
-    print("Signature:", signature)
-    is_valid = verifySignature(signature, A, binary_string, nvals, q)
-    if is_valid:
-        print("Signature is valid.")
-    else:
-        print("Signature is invalid.")
+    # signature = generateSignature(binary_string, A, q, nvals)
+    # print("Signature:", signature)
+    # is_valid = verifySignature(signature, A, binary_string, nvals, q)
+    # if is_valid:
+    #     print("Signature is valid.")
+    # else:
+    #     print("Signature is invalid.")
 
 if __name__ == "__main__":
-    nvals = 16
-    q = 97
+    nvals = 1024
+    q = 59393
     input_string = input("Enter a string to encrypt: ")
     main(input_string, nvals, q)
