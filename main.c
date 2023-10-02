@@ -1,9 +1,8 @@
-
-
+#include <time.h>
+#include <string.h>
 #include <stdio.h>
 #include <stdint.h>
 #include <stdlib.h>
-
 #include "api.h"
 #include "katrng.h"
 
@@ -34,6 +33,25 @@ int main(void)
     uint8_t pk[CRYPTO_PUBLICKEYBYTES];
     uint8_t sk[CRYPTO_SECRETKEYBYTES];
 
+    uint8_t entropy_input[MLEN + CRYPTO_BYTES];
+    int count = 0;
+
+    srand((unsigned int)time(NULL));
+
+    while (count < MLEN + CRYPTO_BYTES)
+    {
+        uint8_t c = (uint8_t)(rand() % 256); // Generate random byte (0-255)
+        entropy_input[count] = c;
+        count++;
+    }
+
+    printf("Entropy collected successfully.\n");
+    uint8_t personalization_string[32];
+    int security_strength = 256;
+
+    randombytes_init(entropy_input, personalization_string, security_strength);
+
+    // Generate random data for m
     randombytes(m, MLEN);
 
     crypto_sign_keypair(pk, sk);
@@ -79,10 +97,12 @@ int main(void)
     printf("Signature Length = %ld\n", smlen);
 
     printf("\nAlice Public key: %s\n", showhex(pk, CRYPTO_PUBLICKEYBYTES));
-    printf("Alice Secret key: %s\n", showhex(sk, CRYPTO_SECRETKEYBYTES));
+    printf("\nAlice Secret key: %s\n", showhex(sk, CRYPTO_SECRETKEYBYTES));
 
     printf("\nMessage: %s\n", showhex(m, MLEN));
     printf("Signature : %s\n", showhex(sm, smlen));
     printf("Verified!\n");
+    free(showhex(pk, CRYPTO_PUBLICKEYBYTES));
+    free(showhex(sk, CRYPTO_SECRETKEYBYTES));
     return 0;
 }
