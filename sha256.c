@@ -163,18 +163,3 @@ void generateSHA256(const uint8_t *data, size_t data_len, uint8_t hash[32], cons
     }
     printf("\n");
 }
-
-// int main()
-// {
-//     const uint8_t data[] = "Hello, SHA-256!";
-//     uint8_t hash[32];
-//     generateSHA256(hash, data, strlen((char *)data));
-
-//     printf("SHA-256 Hash: ");
-//     for (int i = 0; i < 32; i++)
-//     {
-//         printf("%02x", hash[i]);
-//     }
-//     printf("\n");
-//     return 0;
-// }
