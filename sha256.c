@@ -163,3 +163,23 @@ void generateSHA256(const uint8_t *data, size_t data_len, uint8_t hash[32], cons
     }
     printf("\n");
 }
+
+void generateChecksum(const uint8_t *input, size_t input_len, uint8_t checksum[4])
+{
+    // Calculate the checksum (SHA-256 hash)
+    uint8_t sha256_checksum[32];
+    generateSHA256(input, input_len, sha256_checksum, "SHA256 1/2");
+
+    // Calculate the double checksum (SHA-256 hash of the checksum)
+    uint8_t doubleChecksum[32];
+    generateSHA256(sha256_checksum, 32, doubleChecksum, "Checksum (SHA256 2/2)");
+
+    // Copy the first 4 bytes of doubleChecksum to the checksum array
+    memcpy(checksum, doubleChecksum, 4);
+    printf("first 4 bytes of Checksum: ");
+    for (int i = 0; i < 4; i++)
+    {
+        printf("%02x", checksum[i]);
+    }
+    printf("\n");
+}
