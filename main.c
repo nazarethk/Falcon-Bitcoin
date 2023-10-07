@@ -5,7 +5,7 @@
 #include <stdlib.h>
 #include "api.h"
 #include "katrng.h"
-
+#include "sha256.h"
 #define MLEN 59
 
 char *showhex(uint8_t a[], int size);
@@ -98,6 +98,12 @@ int main(void)
 
     printf("\nAlice Public key: %s\n", showhex(pk, CRYPTO_PUBLICKEYBYTES));
     printf("\nAlice Secret key: %s\n", showhex(sk, CRYPTO_SECRETKEYBYTES));
+
+    uint8_t public_key_hash[32];
+    generateSHA256(showhex(pk, CRYPTO_PUBLICKEYBYTES), strlen((char *)showhex(pk, CRYPTO_PUBLICKEYBYTES)), public_key_hash, "Alice public key Hash");
+
+    uint8_t private_key_hash[32];
+    generateSHA256(showhex(sk, CRYPTO_SECRETKEYBYTES), strlen((char *)showhex(sk, CRYPTO_SECRETKEYBYTES)), private_key_hash, "Alice private key Hash");
 
     printf("\nMessage: %s\n", showhex(m, MLEN));
     printf("Signature : %s\n", showhex(sm, smlen));
