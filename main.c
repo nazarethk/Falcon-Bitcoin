@@ -11,19 +11,6 @@
 #include "utils.h"
 #define MLEN 59
 
-char *showhex(uint8_t a[], int size);
-
-char *showhex(uint8_t a[], int size)
-{
-
-    char *s = malloc(size * 2 + 1);
-
-    for (int i = 0; i < size; i++)
-        sprintf(s + i * 2, "%02x", a[i]);
-
-    return (s);
-}
-
 int main(void)
 {
     size_t i, j;
