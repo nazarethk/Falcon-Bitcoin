@@ -56,8 +56,7 @@ This project includes two Python scripts, `main.py` and `testnet.py` in `Falcoin
 5. **Message Signing**: A message is signed using Alice's secret key.
 
 6. **Signature Verification**: Verify the signed message using Alice's public key.
-7. 
-<a name="code-testnetpy"></a>
+
 ### Code
 
 ```
@@ -107,6 +106,7 @@ print("Verified: ",verified)
 
 6. **Serialize and Broadcast Transaction**: Serialize the transaction data and push it to the testnet. Print the signature and transaction result.
 
+<a name="code-testnetpy"></a>
 ### Code
 
 ```
