@@ -12,17 +12,24 @@ Bob_address = "mywrcLXoaifhjdPNtaUCkezd54yWVNS4db"
 
 print("\n###################\nBob credentials:\n###################\nSecret Vector:",Bob_SecretKey,"\n\nSecret Key:", Bob_SecretKey, "(",len(Bob_SecretKey)/2,"bytes)\n\nPublic Key (uncompressed):" ,Bob_PublicKey,"(",len(Bob_PublicKey)/2,"bytes)\n\nBob address:",Bob_address)
 # Fetch the sender's unspent transaction outputs (UTXOs)
-sender_utxos = c.unspent(Bob_address)
-print(sender_utxos)
-
+Bob_utxos = c.unspent(Bob_address)
 # Create a transaction input from one of the sender's UTXOs
-txin = sender_utxos[0]
+if len(Bob_utxos) == 0:
+    print("Bob has no UTXOs available")
+    exit(1)
+print("Bob UTXOs:",Bob_utxos)
+txin = Bob_utxos[0]
 tx = c.preparesignedtx(Bob_SecretKey, Bob_address, Alice_address, 100)
 sig = serialize(tx)
 res = c.pushtx(tx)
 print("signature:", sig)
 print("result:", res)
 
+Alice_utxos = c.unspent(Alice_address)
+if len(Alice_SecretKey) == 0:
+    print("Alice has no UTXOs available")
+    exit(1)
+print("Alice UTXOs:",Alice_utxos)
 # ###################
 # Alice credentials:
 # ###################
@@ -44,6 +51,7 @@ print("result:", res)
 # Public Key (uncompressed): 04e760db9f177d6d776c84f8f3dd330dd7d87c93f1a98092fb403c04bb1b0f52a429bb4ba8c9f00524c4764739a74e00acb3c6c6b23a1ebd3d316852f3e6a5089e ( 65.0 bytes)
 
 # Bob address: mywrcLXoaifhjdPNtaUCkezd54yWVNS4db
-# [{'tx_hash': '0966056529ddc4e8415a4ba0417ea94bae570d84ee04ea27f52a966aff77ffb7', 'tx_pos': 1, 'height': 0, 'value': 7149, 'address': 'mywrcLXoaifhjdPNtaUCkezd54yWVNS4db'}]
+# Bob UTXOs: [{'tx_hash': '426f81493767fad18b4bc945ac06a3f7c9e8269359ce2043378e0ff44b97bfb8', 'tx_pos': 1, 'height': 2534511, 'value': 6049, 'address': 'mywrcLXoaifhjdPNtaUCkezd54yWVNS4db'}]
 # signature: 0100000001b7ff77ff6a962af527ea04ee840d57ae4ba97e41a04b5a41e8c4dd2965056609010000008a47304402204bc2299696c0e544f5f7d2b5d103c21aedf739a07751cc35866ea7dc8cf25e3f022069dafa00be8e85b957abbb79c80884d6a8bdd93a210e1376a0708d06d224b8c2014104e760db9f177d6d776c84f8f3dd330dd7d87c93f1a98092fb403c04bb1b0f52a429bb4ba8c9f00524c4764739a74e00acb3c6c6b23a1ebd3d316852f3e6a5089effffffff0264000000000000001976a914a5f948ecb6f29821aebcc1ea80f4319463f8f35f88aca1170000000000001976a914ca27eaf191f26bbf05987acda5ffea19aa3d669788ac00000000
 # result: 426f81493767fad18b4bc945ac06a3f7c9e8269359ce2043378e0ff44b97bfb8
+# Alice UTXOs: [{'tx_hash': '0966056529ddc4e8415a4ba0417ea94bae570d84ee04ea27f52a966aff77ffb7', 'tx_pos': 0, 'height': 2534511, 'value': 100, 'address': 'mveYRKd8UZKUmb5AWBufyGyQ11CriakgwQ'}, {'tx_hash': '426f81493767fad18b4bc945ac06a3f7c9e8269359ce2043378e0ff44b97bfb8', 'tx_pos': 0, 'height': 2534511, 'value': 100, 'address': 'mveYRKd8UZKUmb5AWBufyGyQ11CriakgwQ'}]
