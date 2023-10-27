@@ -7,7 +7,7 @@ def generateKeys():
     sk.sha = sha256(sk.hex)
     pk.hex = c.privtopub(sk.sha)
     pk.h = [int(x) for x in bytes.fromhex(pk.hex)]
-    address = c.privtoaddr(sk.sha)
+    address = c.pubtop2wpkh_p2sh(pk.hex) # P2SH (BASE58) - Segwit - Pay to Script Hash
     return sk, pk ,address
 
 Alice_SecretKey, Alice_PublicKey, Alice_address = generateKeys()
