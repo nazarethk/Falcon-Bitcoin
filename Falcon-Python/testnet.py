@@ -26,7 +26,7 @@ print("signature:", sig)
 print("result:", res)
 
 Alice_utxos = c.unspent(Alice_address)
-if len(Alice_SecretKey) == 0:
+if len(Alice_utxos) == 0:
     print("Alice has no UTXOs available")
     exit(1)
 print("Alice UTXOs:",Alice_utxos)
