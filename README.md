@@ -86,12 +86,11 @@ import falcon
 from cryptos import Bitcoin , sha256
 c = Bitcoin(testnet=True)
 def generateKeys():
-    sk = falcon.SecretKey(256) # or using 8 and enabling pkGeneration
-    pk = falcon.PublicKey(sk)
+    sk = falcon.SecretKey(256)
     sk.sha = sha256(sk.hex)
-    pk.hex = c.privtopub(sk.sha)
+    pk = falcon.PublicKey(sk)
     pk.h = [int(x) for x in bytes.fromhex(pk.hex)]
-    address = c.privtoaddr(sk.sha)
+    address = c.pubtop2wpkh_p2sh(pk.h) # P2SH (BASE58) - Segwit - Pay to Script Hash
     return sk, pk ,address
 
 Alice_SecretKey, Alice_PublicKey, Alice_address = generateKeys()
