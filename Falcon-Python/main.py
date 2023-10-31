@@ -3,11 +3,10 @@ from cryptos import Bitcoin , sha256
 c = Bitcoin(testnet=True)
 def generateKeys():
     sk = falcon.SecretKey(256)
-    pk = falcon.PublicKey(sk)
     sk.sha = sha256(sk.hex)
-    pk.hex = c.privtopub(sk.sha)
+    pk = falcon.PublicKey(sk)
     pk.h = [int(x) for x in bytes.fromhex(pk.hex)]
-    address = c.pubtop2wpkh_p2sh(pk.hex) # P2SH (BASE58) - Segwit - Pay to Script Hash
+    address = c.pubtop2wpkh_p2sh(pk.h) # P2SH (BASE58) - Segwit - Pay to Script Hash
     return sk, pk ,address
 
 Alice_SecretKey, Alice_PublicKey, Alice_address = generateKeys()
