@@ -102,7 +102,6 @@ def generateKeys():
     sk.sha = sha256(sk.hex)
     pk = falcon.PublicKey(sk)
     pk.sha = sha256(pk.hex)
-    pk.h = [int(x) for x in bytes.fromhex(pk.hex)] # vector
     address = c.pubtop2wpkh_p2sh(ripemd160(pk.sha)) # P2SH (BASE58) - Segwit - Pay to Script Hash
     return sk, pk ,address
 
