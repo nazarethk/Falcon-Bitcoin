@@ -18,7 +18,7 @@ def generateKeys():
     sk.sha = sha256(sk.hex)
     pk = falcon.PublicKey(sk)
     pk.sha = sha256(pk.hex)
-    address = c.pubtop2wpkh_p2sh(ripemd160(pk.sha)) # P2SH (BASE58) - Segwit - Pay to Script Hash
+    address = c.privtop2wpkh_p2sh(sk.sha) # P2SH (BASE58) - Segwit - Pay to Script Hash
     return sk, pk ,address
 
 Alice_SecretKey, Alice_PublicKey, Alice_address = generateKeys()
@@ -26,10 +26,3 @@ printCredentials("Alice", Alice_SecretKey, Alice_PublicKey, Alice_address)
 
 Bob_SecretKey, Bob_PublicKey, Bob_address = generateKeys()
 printCredentials("Bob", Bob_SecretKey, Bob_PublicKey, Bob_address)
-
-message = "Bitcoin is great"
-sig = Alice_SecretKey.sign(message.encode())
-
-print("\nSignature is ", sig, "(",len(sig)/2,"bytes)")
-verified = Alice_PublicKey.verify(message.encode(), sig)
-print("Verified: ",verified)
