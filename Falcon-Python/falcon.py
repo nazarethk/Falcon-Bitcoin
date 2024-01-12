@@ -192,12 +192,12 @@ class PublicKey:
         self.hash_to_point = sk.hash_to_point
         self.signature_bound = sk.signature_bound
         self.verify = sk.verify
-        self.hex = bytes([x % 256 for x in self.h]).hex()
+        self.hex = ''.join([format(x, '04x') for x in self.h])
 
     def __repr__(self):
         """Print the object in readable form."""
        
-        return self.hex
+        return self
 
 
 class SecretKey:
@@ -216,14 +216,20 @@ class SecretKey:
     - verify the signature of a message
     """
 
-    def __init__(self, n, polys=None):
+    def __init__(self, n, sigma=None, sigmin=None, signature_bound=None, sig_bytelen=None, polys=None):
         """Initialize a secret key."""
         # Public parameters
         self.n = n
-        self.sigma = Params[n]["sigma"]
-        self.sigmin = Params[n]["sigmin"]
-        self.signature_bound = Params[n]["sig_bound"]
-        self.sig_bytelen = Params[n]["sig_bytelen"]
+        if sigma and sigmin and signature_bound and sig_bytelen:
+            self.sigma = sigma
+            self.sigmin = sigmin
+            self.signature_bound = signature_bound
+            self.sig_bytelen = sig_bytelen
+        else:
+            self.sigma = Params[n]["sigma"]
+            self.sigmin = Params[n]["sigmin"]
+            self.signature_bound = Params[n]["sig_bound"]
+            self.sig_bytelen = Params[n]["sig_bytelen"]
 
         # Compute NTRU polynomials f, g, F, G verifying fG - gF = q mod Phi
         if polys is None:
@@ -250,23 +256,25 @@ class SecretKey:
 
         # The public key is a polynomial such that h*f = g mod (Phi,q)
         self.h = div_zq(self.g, self.f)
-        f = [x % 256 for x in self.f]
-        g = [x % 256 for x in self.g]
-        F = [x % 256 for x in self.F]
-        G = [x % 256 for x in self.G]
-        self.hex = bytes(f+g+F+G).hex()
-
+        f = ''.join([format(x, '04x') for x in self.f])
+        g = ''.join([format(x, '04x') for x in self.g])
+        F = ''.join([format(x, '04x') for x in self.F])
+        G = ''.join([format(x, '04x') for x in self.G])
+        self.hex = f+g+F+G
+        print("Secret key information:\n",self.sigma, self.sigmin, self.signature_bound, self.sig_bytelen, [self.f, self.g, self.F, self.G])
+        print()
+        
     def __repr__(self, verbose=False):
         """Print the object in readable form."""
-        # rep = "Private key for n = {n}:\n\n".format(n=self.n)
-        # rep += "f = {f}\n".format(f=self.f)
-        # rep += "g = {g}\n".format(g=self.g)
-        # rep += "F = {F}\n".format(F=self.F)
-        # rep += "G = {G}\n".format(G=self.G)
-        # if verbose:
-        #     rep += "\nFFT tree\n"
-        #     rep += print_tree(self.T_fft, pref="")
-        return self.hex
+        rep = "Private key for n = {n}:\n\n".format(n=self.n)
+        rep += "f = {f}\n".format(f=self.f)
+        rep += "g = {g}\n".format(g=self.g)
+        rep += "F = {F}\n".format(F=self.F)
+        rep += "G = {G}\n".format(G=self.G)
+        if verbose:
+            rep += "\nFFT tree\n"
+            rep += print_tree(self.T_fft, pref="")
+        return rep
 
     def hash_to_point(self, message, salt):
         """
