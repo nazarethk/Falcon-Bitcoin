@@ -40,6 +40,35 @@ Here, `calculate_scriptPubKey` is presumably a method in the `Person` class that
 
 In summary, the relationship between `scriptSig` and `scriptPubKey` is crucial for a valid Bitcoin transaction. The `scriptPubKey` sets the spending conditions, and the `scriptSig` provides the proof that those conditions are met. Together, they form a powerful mechanism for securing transactions on the Bitcoin blockchain.
 
+### Strucures
+
+#### scriptSig
+
+The scriptSig has the following format:
+`<length of signature> <signature> <length of pubkey> <pubkey>`<br><br>
+For example:<br>
+scriptSig = "71238533567be946450fc56ff2da8c7eef501eb86b83db4521789a7d84c13097ecd240e1cce25f77fff1629692e3314389fba0b1acacf39379a59aa423465765cb1208ab6cf56b3689d648d4d652efa22f88df8b15b6a2ecb05aba8343663435a85100a5f6f6e6e6feeecad71bb28f034df7eb64651859574dd70704833227c0fafd30c83a7d9effe10d3494f1cbed33dfaa70badd1fa7932bf57223183900f615291a3e795556d2d96451e51a6d328feb674afed67ea425b7bf7e06e9ae9dab7b25c97fa5a68d21756b1087c7a6b77b222d764a0e7d2db0e4b324346d1a75abf954a0d6b8db892edcba73b8eebd6ca71424f76cc8a4694d9e925251869a24c4dc6d1a98474b19d699652a596d2b590f7a7b6d4191f62b12cc16bd88311716b1758d4b15f20f38b2c6792127d320af66936dbab55577bb7c77fa5cf9ebb7b2ff5c9144ccf818c6a50bb0e0899f5a829194a39da6362c1f972cd5232ae40000000000000000010242a5107d10c2108c30f020c030633213e27d626711f730ca829f71bf0074809621f2b251c2b521f7725951f1a243621d312b81d6213ce0a59128326c12c1d1a341072011e14a6026b0d1e2a831df2277a0f232aec202e2a512abc253402f311e917361f561ad00ef427380d0f24e92ffc2d220f0f226a12ca0efa1f22071a062e222c22590c5e146300fd232b0f700d331def0e21155a064718ad203b08a82c4524600c4a2803042f017323fb252a055e033f01a51a501ccb19620846157a09db07670b7d141123960e7f25bb03d0257202781334181c058a189601bc28590e66257b1f182b1820b506c005c5276a2cc725b924f207720483098e287710fe0e99098f04cd04302ffb2ec509ca2883171a1e1913fa047a188411a21e4124061d3f130a120c2c740b1806f312ff189d1ca920340fde2166131f08f7169803800d7309b80b4322fb18d02d9005882c2027e7147a24e2099a0e9e27f902732a3c29541530011b2a7329e11eea220b14d303bb23082f8600c712da174b2d321e161ca1189720532ec20e5a0143019b21c008a00ffa1dda2ef62c8b07270b742bcf0aea117313bd1ac12712223f127c25151f9d2465224d209b22d308e22fa300d513f51b0220d327ec2a6a265b1c35046428fa020e168f1fb6290d16671c2108ec0cf2129c13820f8f0ec806691ea2299c001d0cd71f6804d32e1d062528072bfb2825"
+
+    - 712 - Length of <signature>
+    - 38533567be...0000 - <signature>
+    - 1024 - length of <pubkey>
+    - 2a5107d...fb2825 - <pubkey>
+
+#### ScriptPubKey
+
+The ScriptPubKey has the following format:
+`<OP_DUP> <OP_HASH160> <length of hash> <hash> <OP_EQUALVERIFY> <OP_CHECKSIG>`<br><br>
+
+For example:<br>
+ScriptPubKey = "76a9403888a1f82a7aa0a2134d10302ef7577d9ac9cb0788ac"
+
+    - 76 - OP_DUP
+    - a9 - OP_HASH160
+    - 40 - length of <hash>
+    - 3888a1f82a7aa0a2134d10302ef7577d9ac9cb07 - <hash>
+    - 88 - OP_EQUALVERIFY
+    - ac - OP_CHECKSIG
+
 ### 1. Importing Modules
 
 The script begins by importing necessary modules:
