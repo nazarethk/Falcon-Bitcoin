@@ -86,7 +86,20 @@ if verify(aliceScriptSig,json_bytes):
       "ScriptPubKey": bob.calculate_scriptPubKey()
     }
     bob.utxos.append(bob_utxo)
+    print("Bob's utxos:", bob.utxos)
     print(bob.utxos)
+    # As alice spent the utxo and had only one, we ovveride the utxo with the following
+    alice.utxos = [
+      {
+        "tx_hash": sha256(sha256(json.dumps(tx).encode('utf-8'))),
+        "vout": 0,
+        "sequence": 123456789,
+        "value": 4900000000,
+        "ScriptPubKey": alice.calculate_scriptPubKey()
+      }
+    ]
+    print("Alice's utxos:", alice.utxos)
+    
 else:
     print("The signature is not valid (OP_CHECKSIG failed)")
 
