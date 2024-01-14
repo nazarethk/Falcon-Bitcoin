@@ -1,5 +1,6 @@
 from falcon import decompress, sub_zq, mul_zq, q, HEAD_LEN, SALT_LEN
 from Crypto.Hash import SHAKE256
+from cryptos import sha256, ripemd160
 
 n = 256
 sig_bytelen = 356 # for falcon 256
@@ -35,7 +36,7 @@ def hash_to_point(message, salt):
         return hashed
 
 
-def verify(scriptSig, message):
+def verify(scriptSig, message, scriptPubKey):
         len_signature = sig_bytelen * 2
 
         # Extract the signature based on the length
@@ -72,7 +73,13 @@ def verify(scriptSig, message):
         norm_sign += sum(coef ** 2 for coef in s1)
         if norm_sign > sig_bound:
             print("Squared norm of signature is too large:", norm_sign)
+            print("OP_CHECKSIG failed")
             return False
 
+        hash160 = ripemd160(sha256(pubkey))
+        if scriptPubKey != ("76a9" + str(len(hash160)) + hash160 + "88ac"):
+            print("OP_EQUALVERIFY failed")
+            return False
+        
         # If all checks are passed, accept
         return True

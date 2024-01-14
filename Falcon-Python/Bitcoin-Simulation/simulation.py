@@ -1,7 +1,7 @@
 import json
 import sys
 sys.path.append("..")  
-from Person import Person  # Assuming the Person class is defined in person.py
+from Person import Person
 from BitcoinWrapper import verify
 from cryptos import sha256
 
@@ -76,7 +76,7 @@ print(tx)
 # For educational purposes we will verify using our code, instead of a testnet.
 
 # 3. Verify the transaction
-if verify(aliceScriptSig,json_bytes):
+if verify(aliceScriptSig, json_bytes, alice.calculate_scriptPubKey()): 
     print("Validated!")
     bob_utxo = {
       "tx_hash": sha256(sha256(json.dumps(tx).encode('utf-8'))),
@@ -86,8 +86,7 @@ if verify(aliceScriptSig,json_bytes):
       "ScriptPubKey": bob.calculate_scriptPubKey()
     }
     bob.utxos.append(bob_utxo)
-    print("Bob's utxos:", bob.utxos)
-    print(bob.utxos)
+    print("\nBob's utxos:", bob.utxos)
     # As alice spent the utxo and had only one, we ovveride the utxo with the following
     alice.utxos = [
       {
@@ -98,9 +97,9 @@ if verify(aliceScriptSig,json_bytes):
         "ScriptPubKey": alice.calculate_scriptPubKey()
       }
     ]
-    print("Alice's utxos:", alice.utxos)
+    print("\nAlice's utxos:", alice.utxos)
     
 else:
-    print("The signature is not valid (OP_CHECKSIG failed)")
+    print("Verification failed")
 
 
