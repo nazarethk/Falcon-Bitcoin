@@ -46,7 +46,12 @@ def verify(scriptSig, message, scriptPubKey):
 
         # Extract the pubkey based on the length
         pubkey = scriptSig[len(str(len_signature)) + len_signature + len_pubkey :]
+        hash160 = ripemd160(sha256(pubkey))
 
+        if scriptPubKey != ("76a9" + str(len(hash160)) + hash160 + "88ac"):
+            print("OP_EQUALVERIFY failed")
+            return False
+        
         h =  [int(pubkey[i:i+4], 16) for i in range(0, len(pubkey), 4)]
         print(h)
         """
@@ -74,11 +79,6 @@ def verify(scriptSig, message, scriptPubKey):
         if norm_sign > sig_bound:
             print("Squared norm of signature is too large:", norm_sign)
             print("OP_CHECKSIG failed")
-            return False
-
-        hash160 = ripemd160(sha256(pubkey))
-        if scriptPubKey != ("76a9" + str(len(hash160)) + hash160 + "88ac"):
-            print("OP_EQUALVERIFY failed")
             return False
         
         # If all checks are passed, accept
