@@ -2,6 +2,32 @@ from falcon import decompress, sub_zq, mul_zq, q, HEAD_LEN, SALT_LEN
 from Crypto.Hash import SHAKE256
 from cryptos import sha256, ripemd160
 
+"""
+ FalconParam(256, 64)
+    256: {
+        "n": 256,
+        "sigma": 163.04153322607107,
+        "sigmin": 1.2570545284063217,
+        "sig_bound": 16468416,
+        "sig_bytelen": 356,
+    },
+    # FalconParam(512, 128)
+    512: {
+        "n": 512,
+        "sigma": 165.7366171829776,
+        "sigmin": 1.2778336969128337,
+        "sig_bound": 34034726,
+        "sig_bytelen": 666,
+    },
+    # FalconParam(1024, 256)
+    1024: {
+        "n": 1024,
+        "sigma": 168.38857144654395,
+        "sigmin": 1.298280334344292,
+        "sig_bound": 70265242,
+        "sig_bytelen": 1280,
+    },"""
+
 n = 256
 sig_bytelen = 356 # for falcon 256
 sig_bound = 16468416 # for falcon 256
