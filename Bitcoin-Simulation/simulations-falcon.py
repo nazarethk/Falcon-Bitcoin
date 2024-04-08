@@ -57,7 +57,7 @@ def simulate_transaction(sender, receiver, amount):
     tx["inputs"][0]["scriptSig"] = sender_scriptSig
     
     # Verify the transaction
-    if verify(sender_scriptSig, json_bytes, sender.calculate_scriptPubKey()): 
+    if verify(sender_scriptSig, json_bytes, sender.utxos[0]["ScriptPubKey"]): 
         tx_hash = sha256(sha256(json.dumps(tx).encode('utf-8')))
         print("Transaction Validated! Tx hash:", tx_hash)
         # Update UTXOs
