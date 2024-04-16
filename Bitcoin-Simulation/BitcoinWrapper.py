@@ -2,38 +2,43 @@ from falcon import decompress, sub_zq, mul_zq, q, HEAD_LEN, SALT_LEN
 from Crypto.Hash import SHAKE256
 from cryptos import sha256, ripemd160
 
-"""
- FalconParam(256, 64)
-    256: {
+
+falconParams = {
+     64:{
+        "n": 64,
+        "sigma": 157.51308555044122,
+        "sigmin": 1.2144300507766141,
+        "sig_bound": 3842630,
+        "sig_bytelen": 122,
+    },128:{
+        "n": 128,
+        "sigma": 160.30114421975344,
+        "sigmin": 1.235926056771981,
+        "sig_bound": 7959734,
+        "sig_bytelen": 200,
+    }, 256:{
         "n": 256,
         "sigma": 163.04153322607107,
         "sigmin": 1.2570545284063217,
         "sig_bound": 16468416,
         "sig_bytelen": 356,
-    },
-    # FalconParam(512, 128)
-    512: {
+    }, 512:{
         "n": 512,
         "sigma": 165.7366171829776,
         "sigmin": 1.2778336969128337,
         "sig_bound": 34034726,
         "sig_bytelen": 666,
-    },
-    # FalconParam(1024, 256)
-    1024: {
+    }, 1024:{
         "n": 1024,
         "sigma": 168.38857144654395,
         "sigmin": 1.298280334344292,
         "sig_bound": 70265242,
         "sig_bytelen": 1280,
-    },"""
-
-n = 256
-sig_bytelen = 356 # for falcon 256
-sig_bound = 16468416 # for falcon 256
+    }
+}
 
 
-def hash_to_point(message, salt):
+def hash_to_point(message, salt, n):
         """
         Hash a message to a point in Z[x] mod(Phi, q).
         Inspired by the Parse function from NewHope.
@@ -61,17 +66,20 @@ def hash_to_point(message, salt):
             j += 1
         return hashed
 
-
-def verify(scriptSig, message, scriptPubKey):
+def verify(scriptSig, message, scriptPubKey, n):
+        sig_bytelen = falconParams[n]["sig_bytelen"] 
+        sig_bound = falconParams[n]["sig_bound"]
+        sig_len = n * 4 
         len_signature = sig_bytelen * 2
-
+        print("len_signature", len_signature)
         # Extract the signature based on the length
         signature = scriptSig[len(str(len_signature)) : len(str(len_signature)) + len_signature]
 
-        len_pubkey = len(str(1024))
+        len_pubkey = len(str(sig_len))
 
         # Extract the pubkey based on the length
         pubkey = scriptSig[len(str(len_signature)) + len_signature + len_pubkey :]
+        print("len_pubkey", len(pubkey))
         hash160 = ripemd160(sha256(pubkey))
 
         if scriptPubKey != ("76a9" + str(len(hash160)) + hash160 + "88ac"):
@@ -95,7 +103,7 @@ def verify(scriptSig, message, scriptPubKey):
             return False
 
         # Compute s0 and normalize its coefficients in (-q/2, q/2]
-        hashed = hash_to_point(message, salt)
+        hashed = hash_to_point(message, salt, n)
         s0 = sub_zq(hashed, mul_zq(s1, h))
         s0 = [(coef + (q >> 1)) % q - (q >> 1) for coef in s0]
 

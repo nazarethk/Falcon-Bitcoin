@@ -57,7 +57,7 @@ def simulate_transaction(sender, receiver, amount):
     tx["inputs"][0]["scriptSig"] = sender_scriptSig
     
     # Verify the transaction
-    if verify(sender_scriptSig, json_bytes, sender.utxos[0]["ScriptPubKey"]): 
+    if verify(sender_scriptSig, json_bytes, sender.utxos[0]["ScriptPubKey"], falcon_dimension): 
         tx_hash = sha256(sha256(json.dumps(tx).encode('utf-8')))
         print("Transaction Validated! Tx hash:", tx_hash)
         # Update UTXOs
@@ -87,8 +87,9 @@ def simulate_transaction(sender, receiver, amount):
 
 start_program_time = time.time()
 num_simulations = 10
-
-alice = Person()
+falcon_dimension = int(sys.argv[1])
+print("Running falcon using parameter", falcon_dimension)
+alice = Person(falcon_dimension)
 alice.utxos = [
     {
       "tx_hash": "d3ed3aa3fd979622858d0dce1c98cfee3468741a851b20ed2159558df935d22d",
@@ -98,7 +99,7 @@ alice.utxos = [
       "ScriptPubKey": alice.calculate_scriptPubKey()
     }
 ]
-bob = Person()
+bob = Person(falcon_dimension)
 
 transaction_times = []
 transaction_sizes = []

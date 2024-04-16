@@ -2,7 +2,7 @@ import falcon
 from cryptos import sha256, ripemd160, bin_to_b58check
 
 class Person:
-    def __init__(self, n=256):
+    def __init__(self, n):
         self.sk = falcon.SecretKey(n)
         self.pk = falcon.PublicKey(self.sk)
         self.wallet_address = bin_to_b58check(bytes.fromhex((ripemd160(sha256(self.pk.hex)))))
