@@ -4,6 +4,14 @@ In `simulation.py`, we are making a simulation where Alice attempts to send Bob 
 
 The provided code is a Python script that simulates a basic Bitcoin transaction between two entities, Alice and Bob. The script uses a simplified model for educational purposes and is not intended for use on a real blockchain network.
 
+## Usage
+
+Falcon can be used with different dimensions, currently supporting 64, 128, 256, 512 and 1024.
+
+```
+cd Bitcoin-Simulation; python3 simulations-falcon.py [falcon_dimension]
+```
+
 ### 0. Notes
 
 Let's dive into the explanation of `scriptSig` and `scriptPubKey` in the context of Bitcoin transactions:
