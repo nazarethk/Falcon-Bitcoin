@@ -85,11 +85,13 @@ def simulate_transaction(sender, receiver, amount):
         print("Transaction Verification failed")
         return None
 
-start_program_time = time.time()
-num_simulations = 10
+num_simulations = 2000
 falcon_dimension = int(sys.argv[1])
 print("Running falcon using parameter", falcon_dimension)
+start_alice = time.time()
 alice = Person(falcon_dimension)
+end_alice = time.time()
+alice_time = end_alice - start_alice
 alice.utxos = [
     {
       "tx_hash": "d3ed3aa3fd979622858d0dce1c98cfee3468741a851b20ed2159558df935d22d",
@@ -99,8 +101,13 @@ alice.utxos = [
       "ScriptPubKey": alice.calculate_scriptPubKey()
     }
 ]
+start_bob = time.time()
 bob = Person(falcon_dimension)
+end_bob = time.time()
+bob_time = end_bob - start_bob
 
+# starting program time after key generation
+start_program_time = time.time()
 transaction_times = []
 transaction_sizes = []
 block_transactions = []
@@ -120,7 +127,7 @@ for i in range(num_simulations):
         block_transactions.append(tx)
 
         # Simulate confirmation by adding a delay (for demonstration purposes)
-        confirmation_delay = random.uniform(7, 15) 
+        confirmation_delay = 0 #random.uniform(7, 15) 
         time.sleep(confirmation_delay)
         
         # Record confirmation time
@@ -135,13 +142,15 @@ print(alice.utxos)
 print("\nBob UTXOs:\n")
 print(bob.utxos)
 
-print(f"\nTotal program time: {total_program_time:.4f} seconds")
+print(f"\nAlice initialization time: {alice_time:.4f} seconds")
+print(f"Bob initialization time: {bob_time:.4f} seconds")
+print(f"Total program time (time for 2000 transactions): {total_program_time:.4f} seconds")
 
-print("Average Transaction Size:", sum(transaction_sizes) / len(transaction_sizes), "bytes")
+print("\nAverage Transaction Size:", sum(transaction_sizes) / len(transaction_sizes), "bytes")
 print("Minimum Transaction Size:", min(transaction_sizes), "bytes")
 print("Maximum Transaction Size:", max(transaction_sizes), "bytes")
 
-print(f"Average Transaction Time: {sum(transaction_times) / len(transaction_times):.6f} seconds")
+print(f"\nAverage Transaction Time: {sum(transaction_times) / len(transaction_times):.6f} seconds")
 print(f"Minimum Transaction Time: {min(transaction_times):.6f} seconds")
 print(f"Maximum Transaction Time: {max(transaction_times):.6f} seconds")
 
