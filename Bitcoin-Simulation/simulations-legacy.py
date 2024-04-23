@@ -91,7 +91,7 @@ def simulate_transaction(sender, receiver, amount):
         return None
 
 start_program_time = time.time()
-num_simulations = 10
+num_simulations = 2000
 
 alice_priv = sha256('a big long brainwallet password alice')
 bob_priv = sha256('a big long brainwallet password bob')
@@ -103,7 +103,7 @@ def calculate_scriptPubKey(pub):
         hash160 = calculate_hash160(pub)
         scriptPubKey = "76a9" + str(len(hash160)) + hash160 + "88ac"
         return scriptPubKey
-
+start_alice = time.time()
 alice = {
     "sk":alice_priv,
     "pk": c.privtop2wpkh_p2sh(alice_priv),
@@ -119,13 +119,17 @@ alice = {
         ]
     }
 alice["utxos"][0]["ScriptPubKey"] = calculate_scriptPubKey(alice["pk"])
-
+end_alice = time.time()
+alice_time = end_alice - start_alice
+start_bob = time.time()
 bob = {
     "sk":bob_priv,
     "pk": c.privtop2wpkh_p2sh(bob_priv),
     "wallet_address":c.privtoaddr(bob_priv),
     "utxos": []
     }
+end_bob = time.time()
+bob_time = end_bob - start_bob
 
 
 transaction_times = []
@@ -162,7 +166,10 @@ print(alice["utxos"])
 print("\nBob UTXOs:\n")
 print(bob["utxos"])
 
-print(f"\nTotal program time: {total_program_time:.4f} seconds")
+print(f"\nAlice initialization time: {alice_time:.4f} seconds")
+print(f"Bob initialization time: {bob_time:.4f} seconds")
+print(f"Total program time (time for 2000 transactions): {total_program_time:.4f} seconds")
+
 
 print("Average Transaction Size:", sum(transaction_sizes) / len(transaction_sizes), "bytes")
 print("Minimum Transaction Size:", min(transaction_sizes), "bytes")
