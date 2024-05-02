@@ -46,22 +46,22 @@
 <text text-anchor="middle" x="324" y="-335.9" font-family="Times,serif" font-size="14.00" fill="#000000">Person</text>
 </g>
 <!-- Person__Person -->
-<g id="node7" class="node">
+<g id="node6" class="node">
 <title>Person__Person</title>
-<ellipse fill="#f4fecc" fill-opacity="0.698039" stroke="black" cx="657" cy="-253.46" rx="63.29" ry="28.99"/>
+<ellipse fill="#e5fecc" fill-opacity="0.698039" stroke="black" cx="657" cy="-253.46" rx="63.29" ry="28.99"/>
 <text text-anchor="middle" x="657" y="-256.66" font-family="Times,serif" font-size="14.00" fill="#000000">Person</text>
 <text text-anchor="middle" x="657" y="-240.16" font-family="Times,serif" font-size="14.00" fill="#000000">(Person.py:4)</text>
 </g>
 <!-- Person&#45;&gt;Person__Person -->
 <g id="edge5" class="edge">
 <title>Person&#45;&gt;Person__Person</title>
-<path fill="none" stroke="#000000" d="M359.5,-337.05C427.83,-331.4 571.86,-319.09 582,-314.95 597.2,-308.74 611.78,-298.4 623.97,-288"/>
+<path fill="none" stroke="#000000" d="M360.16,-338.99C421.41,-336.96 542.73,-330.98 582,-314.95 597.2,-308.74 611.78,-298.4 623.97,-288"/>
 <polygon fill="#000000" stroke="#000000" points="626.13,-290.76 631.27,-281.49 621.47,-285.54 626.13,-290.76"/>
 </g>
 <!-- Person__Person____init__ -->
-<g id="node8" class="node">
+<g id="node7" class="node">
 <title>Person__Person____init__</title>
-<ellipse fill="#eaff99" fill-opacity="0.698039" stroke="black" cx="507" cy="-253.46" rx="63.29" ry="28.99"/>
+<ellipse fill="#ccff99" fill-opacity="0.698039" stroke="black" cx="507" cy="-253.46" rx="63.29" ry="28.99"/>
 <text text-anchor="middle" x="507" y="-256.66" font-family="Times,serif" font-size="14.00" fill="#000000">__init__</text>
 <text text-anchor="middle" x="507" y="-240.16" font-family="Times,serif" font-size="14.00" fill="#000000">(Person.py:5)</text>
 </g>
@@ -72,22 +72,22 @@
 <polygon fill="#000000" stroke="#000000" points="475.97,-290.79 481.04,-281.49 471.28,-285.6 475.97,-290.79"/>
 </g>
 <!-- Person__Person__calculate_hash160 -->
-<g id="node9" class="node">
+<g id="node8" class="node">
 <title>Person__Person__calculate_hash160</title>
-<ellipse fill="#eaff99" fill-opacity="0.698039" stroke="black" cx="324" cy="-146.97" rx="81.85" ry="28.99"/>
-<text text-anchor="middle" x="324" y="-150.17" font-family="Times,serif" font-size="14.00" fill="#000000">calculate_hash160</text>
-<text text-anchor="middle" x="324" y="-133.67" font-family="Times,serif" font-size="14.00" fill="#000000">(Person.py:11)</text>
+<ellipse fill="#ccff99" fill-opacity="0.698039" stroke="black" cx="221" cy="-146.97" rx="81.85" ry="28.99"/>
+<text text-anchor="middle" x="221" y="-150.17" font-family="Times,serif" font-size="14.00" fill="#000000">calculate_hash160</text>
+<text text-anchor="middle" x="221" y="-133.67" font-family="Times,serif" font-size="14.00" fill="#000000">(Person.py:11)</text>
 </g>
 <!-- Person&#45;&gt;Person__Person__calculate_hash160 -->
 <g id="edge2" class="edge">
 <title>Person&#45;&gt;Person__Person__calculate_hash160</title>
-<path fill="none" stroke="#000000" d="M291.07,-333.39C271.15,-329.7 245.21,-325.35 222,-322.95 211.22,-321.83 34.51,-322.77 27,-314.95 -3.31,-283.37 -0.25,-250.72 27,-216.47 52.55,-184.35 156.19,-166.01 233.89,-156.54"/>
-<polygon fill="#000000" stroke="#000000" points="234.14,-160.03 243.66,-155.38 233.31,-153.08 234.14,-160.03"/>
+<path fill="none" stroke="#000000" d="M291.07,-333.39C271.15,-329.7 245.21,-325.35 222,-322.95 211.22,-321.83 34.51,-322.77 27,-314.95 -3.31,-283.37 1.72,-252.2 27,-216.47 50.76,-182.88 92.4,-165.65 131.04,-156.86"/>
+<polygon fill="#000000" stroke="#000000" points="131.28,-160.39 140.35,-154.91 129.85,-153.54 131.28,-160.39"/>
 </g>
 <!-- Person__Person__calculate_scriptPubKey -->
-<g id="node10" class="node">
+<g id="node9" class="node">
 <title>Person__Person__calculate_scriptPubKey</title>
-<ellipse fill="#eaff99" fill-opacity="0.698039" stroke="black" cx="324" cy="-253.46" rx="102" ry="28.99"/>
+<ellipse fill="#ccff99" fill-opacity="0.698039" stroke="black" cx="324" cy="-253.46" rx="102" ry="28.99"/>
 <text text-anchor="middle" x="324" y="-256.66" font-family="Times,serif" font-size="14.00" fill="#000000">calculate_scriptPubKey</text>
 <text text-anchor="middle" x="324" y="-240.16" font-family="Times,serif" font-size="14.00" fill="#000000">(Person.py:22)</text>
 </g>
@@ -98,9 +98,9 @@
 <polygon fill="#000000" stroke="#000000" points="327.5,-294.35 324,-284.35 320.5,-294.35 327.5,-294.35"/>
 </g>
 <!-- Person__Person__calculate_scriptSig -->
-<g id="node11" class="node">
+<g id="node10" class="node">
 <title>Person__Person__calculate_scriptSig</title>
-<ellipse fill="#eaff99" fill-opacity="0.698039" stroke="black" cx="120" cy="-253.46" rx="83.97" ry="28.99"/>
+<ellipse fill="#ccff99" fill-opacity="0.698039" stroke="black" cx="120" cy="-253.46" rx="83.97" ry="28.99"/>
 <text text-anchor="middle" x="120" y="-256.66" font-family="Times,serif" font-size="14.00" fill="#000000">calculate_scriptSig</text>
 <text text-anchor="middle" x="120" y="-240.16" font-family="Times,serif" font-size="14.00" fill="#000000">(Person.py:16)</text>
 </g>
@@ -110,126 +110,84 @@
 <path fill="none" stroke="#000000" d="M289.52,-335.42C267.1,-331.7 237.57,-325.31 213,-314.95 195.51,-307.57 177.71,-296.91 162.42,-286.59"/>
 <polygon fill="#000000" stroke="#000000" points="164.71,-283.92 154.5,-281.1 160.72,-289.67 164.71,-283.92"/>
 </g>
-<!-- simulation -->
+<!-- simulationsFalcon -->
 <g id="node3" class="node">
-<title>simulation</title>
-<ellipse fill="#ffffff" fill-opacity="0.698039" stroke="black" cx="582" cy="-340.95" rx="50.33" ry="18"/>
-<text text-anchor="middle" x="582" y="-335.9" font-family="Times,serif" font-size="14.00" fill="#000000">simulation</text>
+<title>simulationsFalcon</title>
+<ellipse fill="#ffffff" fill-opacity="0.698039" stroke="black" cx="1175" cy="-340.95" rx="78.99" ry="18"/>
+<text text-anchor="middle" x="1175" y="-335.9" font-family="Times,serif" font-size="14.00" fill="#000000">simulationsFalcon</text>
 </g>
 <!-- BitcoinWrapper__verify -->
-<g id="node6" class="node">
+<g id="node5" class="node">
 <title>BitcoinWrapper__verify</title>
 <ellipse fill="#fecccc" fill-opacity="0.698039" stroke="black" cx="697" cy="-146.97" rx="103.06" ry="28.99"/>
 <text text-anchor="middle" x="697" y="-150.17" font-family="Times,serif" font-size="14.00" fill="#000000">verify</text>
 <text text-anchor="middle" x="697" y="-133.67" font-family="Times,serif" font-size="14.00" fill="#000000">(BitcoinWrapper.py:69)</text>
 </g>
-<!-- simulation&#45;&gt;BitcoinWrapper__verify -->
-<g id="edge13" class="edge">
-<title>simulation&#45;&gt;BitcoinWrapper__verify</title>
-<path fill="none" stroke="#000000" d="M632.28,-339.11C674.37,-337.21 729.78,-331.53 744,-314.95 772.49,-281.72 756.96,-258.27 744,-216.47 740.57,-205.41 734.67,-194.56 728.19,-184.86"/>
-<polygon fill="#000000" stroke="#000000" points="731.12,-182.94 722.46,-176.83 725.42,-187 731.12,-182.94"/>
-</g>
-<!-- simulation&#45;&gt;Person__Person -->
-<g id="edge8" class="edge">
-<title>simulation&#45;&gt;Person__Person</title>
-<path fill="none" stroke="#000000" d="M596.46,-323.46C605.02,-313.7 616.2,-300.96 626.62,-289.08"/>
-<polygon fill="#000000" stroke="#000000" points="629.06,-291.61 633.03,-281.78 623.8,-286.99 629.06,-291.61"/>
-</g>
-<!-- simulation&#45;&gt;Person__Person____init__ -->
-<g id="edge12" class="edge">
-<title>simulation&#45;&gt;Person__Person____init__</title>
-<path fill="none" stroke="#000000" d="M567.54,-323.46C558.98,-313.7 547.8,-300.96 537.38,-289.08"/>
-<polygon fill="#000000" stroke="#000000" points="540.2,-286.99 530.97,-281.78 534.94,-291.61 540.2,-286.99"/>
-</g>
-<!-- simulation&#45;&gt;Person__Person__calculate_hash160 -->
-<g id="edge11" class="edge">
-<title>simulation&#45;&gt;Person__Person__calculate_hash160</title>
-<path fill="none" stroke="#000000" d="M632.05,-338.36C670.56,-335.96 719.29,-329.96 732,-314.95 746.15,-298.25 747.06,-232.35 732,-216.47 720.52,-204.35 598.52,-210.82 582,-208.47 519.1,-199.49 448.97,-182.59 397.72,-168.93"/>
-<polygon fill="#000000" stroke="#000000" points="398.79,-165.59 388.22,-166.37 396.97,-172.35 398.79,-165.59"/>
-</g>
-<!-- simulation&#45;&gt;Person__Person__calculate_scriptPubKey -->
-<g id="edge9" class="edge">
-<title>simulation&#45;&gt;Person__Person__calculate_scriptPubKey</title>
-<path fill="none" stroke="#000000" d="M533.33,-335.75C504.21,-332.25 466.8,-325.97 435,-314.95 414.08,-307.7 392.42,-296.77 373.84,-286.19"/>
-<polygon fill="#000000" stroke="#000000" points="375.85,-283.31 365.45,-281.3 372.33,-289.36 375.85,-283.31"/>
-</g>
-<!-- simulation&#45;&gt;Person__Person__calculate_scriptSig -->
-<g id="edge10" class="edge">
-<title>simulation&#45;&gt;Person__Person__calculate_scriptSig</title>
-<path fill="none" stroke="#000000" d="M533.39,-335.67C490.23,-331.97 425.45,-326.65 369,-322.95 334.36,-320.68 246.02,-325.67 213,-314.95 194.34,-308.89 175.81,-298.08 160.25,-287.25"/>
-<polygon fill="#000000" stroke="#000000" points="162.36,-284.45 152.2,-281.44 158.26,-290.13 162.36,-284.45"/>
-</g>
-<!-- simulationsFalcon -->
-<g id="node4" class="node">
-<title>simulationsFalcon</title>
-<ellipse fill="#ffffff" fill-opacity="0.698039" stroke="black" cx="1175" cy="-340.95" rx="78.99" ry="18"/>
-<text text-anchor="middle" x="1175" y="-335.9" font-family="Times,serif" font-size="14.00" fill="#000000">simulationsFalcon</text>
-</g>
 <!-- simulationsFalcon&#45;&gt;BitcoinWrapper__verify -->
-<g id="edge20" class="edge">
+<g id="edge13" class="edge">
 <title>simulationsFalcon&#45;&gt;BitcoinWrapper__verify</title>
-<path fill="none" stroke="#000000" d="M1096.41,-338.48C996.86,-336.01 835.37,-329.77 812,-314.95 769.66,-288.1 785.9,-257.43 757,-216.47 749.1,-205.26 739.66,-193.79 730.64,-183.52"/>
-<polygon fill="#000000" stroke="#000000" points="733.49,-181.45 724.22,-176.33 728.27,-186.12 733.49,-181.45"/>
+<path fill="none" stroke="#000000" d="M1096.61,-338.15C997.28,-335.31 836.04,-328.66 812,-314.95 785.83,-300.03 743.25,-230.41 717.89,-185.91"/>
+<polygon fill="#000000" stroke="#000000" points="721.01,-184.31 713.04,-177.33 714.92,-187.76 721.01,-184.31"/>
 </g>
 <!-- simulationsFalcon&#45;&gt;Person__Person -->
-<g id="edge16" class="edge">
+<g id="edge8" class="edge">
 <title>simulationsFalcon&#45;&gt;Person__Person</title>
 <path fill="none" stroke="#000000" d="M1096.43,-338.43C976.31,-335.69 757.34,-328.84 724,-314.95 710.19,-309.19 697.36,-299.32 686.7,-289.19"/>
 <polygon fill="#000000" stroke="#000000" points="689.25,-286.79 679.71,-282.17 684.28,-291.72 689.25,-286.79"/>
 </g>
 <!-- simulationsFalcon&#45;&gt;Person__Person____init__ -->
-<g id="edge19" class="edge">
+<g id="edge12" class="edge">
 <title>simulationsFalcon&#45;&gt;Person__Person____init__</title>
-<path fill="none" stroke="#000000" d="M1096.74,-337.95C941.11,-333.79 605.64,-323.86 582,-314.95 566.51,-309.11 551.78,-298.74 539.55,-288.22"/>
+<path fill="none" stroke="#000000" d="M1096.02,-339.36C945.61,-337.85 628.79,-332.58 582,-314.95 566.51,-309.11 551.78,-298.74 539.55,-288.22"/>
 <polygon fill="#000000" stroke="#000000" points="542,-285.72 532.23,-281.61 537.3,-290.91 542,-285.72"/>
 </g>
 <!-- simulationsFalcon&#45;&gt;Person__Person__calculate_scriptPubKey -->
-<g id="edge18" class="edge">
+<g id="edge10" class="edge">
 <title>simulationsFalcon&#45;&gt;Person__Person__calculate_scriptPubKey</title>
-<path fill="none" stroke="#000000" d="M1096.99,-337.43C907.66,-331.3 438.96,-316.03 435,-314.95 412.93,-308.92 390.42,-297.77 371.5,-286.67"/>
+<path fill="none" stroke="#000000" d="M1095.84,-339.34C917.96,-337.67 497.32,-331.95 435,-314.95 412.93,-308.92 390.42,-297.77 371.5,-286.67"/>
 <polygon fill="#000000" stroke="#000000" points="373.32,-283.69 362.96,-281.5 369.7,-289.68 373.32,-283.69"/>
 </g>
 <!-- simulationsFalcon__calculate_block_size -->
-<g id="node12" class="node">
+<g id="node11" class="node">
 <title>simulationsFalcon__calculate_block_size</title>
-<ellipse fill="#cce0fe" fill-opacity="0.698039" stroke="black" cx="1175" cy="-253.46" rx="107.83" ry="28.99"/>
+<ellipse fill="#ccfefe" fill-opacity="0.698039" stroke="black" cx="1175" cy="-253.46" rx="107.83" ry="28.99"/>
 <text text-anchor="middle" x="1175" y="-256.66" font-family="Times,serif" font-size="14.00" fill="#000000">calculate_block_size</text>
 <text text-anchor="middle" x="1175" y="-240.16" font-family="Times,serif" font-size="14.00" fill="#000000">(simulationsFalcon.py:9)</text>
 </g>
 <!-- simulationsFalcon&#45;&gt;simulationsFalcon__calculate_block_size -->
-<g id="edge17" class="edge">
+<g id="edge14" class="edge">
 <title>simulationsFalcon&#45;&gt;simulationsFalcon__calculate_block_size</title>
 <path fill="none" stroke="#000000" d="M1175,-322.65C1175,-314.44 1175,-304.27 1175,-294.31"/>
 <polygon fill="#000000" stroke="#000000" points="1178.5,-294.35 1175,-284.35 1171.5,-294.35 1178.5,-294.35"/>
 </g>
 <!-- simulationsFalcon__calculate_transaction_size -->
-<g id="node13" class="node">
+<g id="node12" class="node">
 <title>simulationsFalcon__calculate_transaction_size</title>
-<ellipse fill="#cce0fe" fill-opacity="0.698039" stroke="black" cx="1175" cy="-146.97" rx="112.61" ry="28.99"/>
+<ellipse fill="#ccfefe" fill-opacity="0.698039" stroke="black" cx="1175" cy="-146.97" rx="112.61" ry="28.99"/>
 <text text-anchor="middle" x="1175" y="-150.17" font-family="Times,serif" font-size="14.00" fill="#000000">calculate_transaction_size</text>
 <text text-anchor="middle" x="1175" y="-133.67" font-family="Times,serif" font-size="14.00" fill="#000000">(simulationsFalcon.py:15)</text>
 </g>
 <!-- simulationsFalcon&#45;&gt;simulationsFalcon__calculate_transaction_size -->
-<g id="edge14" class="edge">
+<g id="edge11" class="edge">
 <title>simulationsFalcon&#45;&gt;simulationsFalcon__calculate_transaction_size</title>
 <path fill="none" stroke="#000000" d="M1245.11,-332.41C1266.19,-328.6 1285.47,-323.02 1292,-314.95 1319.53,-280.92 1313.77,-254.44 1292,-216.47 1282.36,-199.65 1266.82,-186.57 1250.17,-176.56"/>
 <polygon fill="#000000" stroke="#000000" points="1252.03,-173.59 1241.59,-171.75 1248.6,-179.69 1252.03,-173.59"/>
 </g>
 <!-- simulationsFalcon__simulate_transaction -->
-<g id="node14" class="node">
+<g id="node13" class="node">
 <title>simulationsFalcon__simulate_transaction</title>
-<ellipse fill="#cce0fe" fill-opacity="0.698039" stroke="black" cx="937" cy="-253.46" rx="112.61" ry="28.99"/>
+<ellipse fill="#ccfefe" fill-opacity="0.698039" stroke="black" cx="937" cy="-253.46" rx="112.61" ry="28.99"/>
 <text text-anchor="middle" x="937" y="-256.66" font-family="Times,serif" font-size="14.00" fill="#000000">simulate_transaction</text>
 <text text-anchor="middle" x="937" y="-240.16" font-family="Times,serif" font-size="14.00" fill="#000000">(simulationsFalcon.py:28)</text>
 </g>
 <!-- simulationsFalcon&#45;&gt;simulationsFalcon__simulate_transaction -->
-<g id="edge15" class="edge">
+<g id="edge9" class="edge">
 <title>simulationsFalcon&#45;&gt;simulationsFalcon__simulate_transaction</title>
 <path fill="none" stroke="#000000" d="M1112.56,-329.65C1094.68,-325.89 1075.35,-321.03 1058,-314.95 1035.72,-307.14 1012.28,-296.14 992.03,-285.65"/>
 <polygon fill="#000000" stroke="#000000" points="993.88,-282.67 983.4,-281.11 990.62,-288.86 993.88,-282.67"/>
 </g>
 <!-- BitcoinWrapper__hash_to_point -->
-<g id="node5" class="node">
+<g id="node4" class="node">
 <title>BitcoinWrapper__hash_to_point</title>
 <ellipse fill="#fecccc" fill-opacity="0.698039" stroke="black" cx="697" cy="-52.99" rx="103.06" ry="28.99"/>
 <text text-anchor="middle" x="697" y="-56.19" font-family="Times,serif" font-size="14.00" fill="#000000">hash_to_point</text>
@@ -244,17 +202,17 @@
 <!-- Person__Person__calculate_scriptPubKey&#45;&gt;Person__Person__calculate_hash160 -->
 <g id="edge7" class="edge">
 <title>Person__Person__calculate_scriptPubKey&#45;&gt;Person__Person__calculate_hash160</title>
-<path fill="none" stroke="#000000" d="M324,-224.18C324,-212.92 324,-199.75 324,-187.56"/>
-<polygon fill="#000000" stroke="#000000" points="327.5,-187.78 324,-177.78 320.5,-187.78 327.5,-187.78"/>
+<path fill="none" stroke="#000000" d="M297.21,-225.28C284.35,-212.24 268.8,-196.47 255.11,-182.58"/>
+<polygon fill="#000000" stroke="#000000" points="257.88,-180.4 248.37,-175.73 252.89,-185.31 257.88,-180.4"/>
 </g>
 <!-- simulationsFalcon__calculate_block_size&#45;&gt;simulationsFalcon__calculate_transaction_size -->
-<g id="edge21" class="edge">
+<g id="edge15" class="edge">
 <title>simulationsFalcon__calculate_block_size&#45;&gt;simulationsFalcon__calculate_transaction_size</title>
 <path fill="none" stroke="#000000" d="M1175,-224.18C1175,-212.92 1175,-199.75 1175,-187.56"/>
 <polygon fill="#000000" stroke="#000000" points="1178.5,-187.78 1175,-177.78 1171.5,-187.78 1178.5,-187.78"/>
 </g>
 <!-- simulationsFalcon__simulate_transaction&#45;&gt;BitcoinWrapper__verify -->
-<g id="edge22" class="edge">
+<g id="edge16" class="edge">
 <title>simulationsFalcon__simulate_transaction&#45;&gt;BitcoinWrapper__verify</title>
 <path fill="none" stroke="#000000" d="M867.86,-230.14C849.49,-223.67 829.82,-216.24 812,-208.47 791.93,-199.71 770.55,-188.9 751.74,-178.85"/>
 <polygon fill="#000000" stroke="#000000" points="753.66,-175.91 743.2,-174.24 750.33,-182.07 753.66,-175.91"/>

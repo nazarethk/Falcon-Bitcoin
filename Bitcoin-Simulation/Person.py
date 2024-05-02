@@ -23,18 +23,4 @@ class Person:
         hash160 = self.calculate_hash160()
         scriptPubKey = "76a9" + str(len(hash160)) + hash160 + "88ac"
         return scriptPubKey
-    
-    
 
-# Example usage:
-if __name__ == "__main__":
-    person = Person()
-
-    hash160_result = person.calculate_hash160()
-    print("Hash160:", hash160_result)
-
-    scriptSig_result = person.calculate_scriptSig("Hello")
-    print("ScriptSig:", scriptSig_result)
-
-    scriptPubKey_result = person.calculate_scriptPubKey()
-    print("ScriptPubKey:", scriptPubKey_result)
