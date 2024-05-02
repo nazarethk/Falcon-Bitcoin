@@ -32,3 +32,11 @@ For more information, go to Bitcoin-Simulation folder.
 - [pybitcointools](https://github.com/primal100/pybitcointools)
 - [falcon.py](https://github.com/tprest/falcon.py)
 - [Validate Generated Wallet addresses](https://awebanalysis.com/en/bitcoin-address-validate/)
+
+### Setup Tips:
+
+export PYTHONPATH="/Users/nazarethkeshishian/Documents/Github/Falcon-Bitcoin/falcon:$PYTHONPATH"
+
+### To create SVGs
+
+pyan3 Person.py --uses --no-defines --colored --grouped --annotated --svg > person.svg

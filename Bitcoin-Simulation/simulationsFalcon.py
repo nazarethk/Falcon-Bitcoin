@@ -1,5 +1,4 @@
 import sys
-sys.path.append("..")
 from cryptos import sha256
 from BitcoinWrapper import verify
 from Person import Person
